@@ -78,7 +78,7 @@ echo 'export PATH="$PATH:${HOME}/vendor/aria2c"' >> $PROFILE_PATH
 
 echo "-----> Installing winrar"
 
-FILE="rarlinux-x64-610b3.tar.gz"
+FILE="rarlinux-x64-610.tar.gz"
 DOWNLOAD_URL="https://www.rarlab.com/rar/$FILE"
 
 if ! [ -e "$CACHE_DIR/$FILE" ]; then
