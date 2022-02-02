@@ -12,17 +12,17 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="vendor"
 FILE="rclone.zip"
-DOWNLOAD_URL="https://raw.githubusercontent.com/The-Antrax/heroku-buildpack-rclone-mod/master/rclone.zip"
+DOWNLOAD_URL="https://github.com/dogbutcat/gclone/releases/download/v1.57.0-mod1.4.0/gclone-v1.57.0-mod1.4.0-linux-amd64.zip"
 
 mkdir -p "$CACHE_DIR"
 
 if ! [ -e "$CACHE_DIR/$FILE" ]; then
-  echo "-----> Fetching Latest Rclone binaries from ANTRAX" | indent
+  echo "-----> Fetching Latest Rclone binaries" | indent
   wget $DOWNLOAD_URL -q -O "$CACHE_DIR/$FILE"
 else
   filestr=$(find . -name "$CACHE_DIR/$FILE" -mtime +1 -print)
   if [ "$filestr" = "" ]; then
-    echo "-----> cache Expired, Fetching Latest Rclone from ANTRAX" | indent
+    echo "-----> cache Expired, Fetching Latest Rclone" | indent
     wget $DOWNLOAD_URL -q -O "$CACHE_DIR/$FILE"
   else
     echo "build using cached source"  | indent
@@ -37,20 +37,21 @@ cd rclone
 cp "$CACHE_DIR/$FILE" .
 unzip -qqj "$FILE"
 rm -rf "$FILE"
+mv gclone rclone
 chmod 777 rclone
 
 echo "exporting PATH" | indent
 PROFILE_PATH="$BUILD_DIR/.profile.d/rclone.sh"
 mkdir -p "$(dirname "$PROFILE_PATH")"
 echo 'export PATH="$PATH:${HOME}/vendor/rclone"' >> $PROFILE_PATH
-echo "Rclone-mod by Antrax installed"  | indent
+echo "Rclone-mod installed"  | indent
 
 ###### install aria2 ##########
 echo "-----> Installing Aria2"
 
-FILE="aria2-1.35.0-linux-gnu-64bit-build1"
+FILE="aria2-1.36.0-linux-gnu-64bit-build1"
 FILE_ARC="${FILE}.tar.bz2"
-DOWNLOAD_URL="https://github.com/q3aql/aria2-static-builds/releases/download/v1.35.0/$FILE_ARC"
+DOWNLOAD_URL="https://github.com/q3aql/aria2-static-builds/releases/download/v1.36.0/$FILE_ARC"
 
 if ! [ -e "$CACHE_DIR/$FILE_ARC" ]; then
   echo "-----> Fetching Aria2 binaries at ${DOWNLOAD_URL}" | indent
