@@ -12,7 +12,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="vendor"
 FILE="rclone.zip"
-DOWNLOAD_URL="https://github.com/dogbutcat/gclone/releases/download/v1.57.0-mod1.4.0/gclone-v1.57.0-mod1.4.0-linux-amd64.zip"
+DOWNLOAD_URL="https://github.com/dogbutcat/gclone/releases/download/v1.58.0-mod1.5.0/gclone-v1.58.0-mod1.5.0-linux-amd64.zip"
 
 mkdir -p "$CACHE_DIR"
 
@@ -78,7 +78,7 @@ echo 'export PATH="$PATH:${HOME}/vendor/aria2c"' >> $PROFILE_PATH
 
 echo "-----> Installing winrar"
 
-FILE="rarlinux-x64-610.tar.gz"
+FILE="rarlinux-x64-611.tar.gz"
 DOWNLOAD_URL="https://www.rarlab.com/rar/$FILE"
 
 if ! [ -e "$CACHE_DIR/$FILE" ]; then
