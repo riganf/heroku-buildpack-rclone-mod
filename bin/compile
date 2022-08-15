@@ -12,7 +12,7 @@ BUILD_DIR=$1
 CACHE_DIR=$2
 VENDOR_DIR="vendor"
 FILE="rclone.zip"
-DOWNLOAD_URL="https://github.com/l3v11/gclone/releases/download/v1.58.1-mango/gclone-v1.58.1-mango-linux-amd64.zip"
+DOWNLOAD_URL="https://github.com/l3v11/gclone/releases/download/v1.59.1-dream/gclone-v1.59.1-dream-linux-amd64.zip"
 
 mkdir -p "$CACHE_DIR"
 
